@@ -17,8 +17,6 @@ app.get("/json", function(req, res){
     
 })
 
-console.log(__dirname + "/public");
-
 app.use("/public", express.static(__dirname + "/public"))
 
 
