@@ -9,10 +9,10 @@ app.get("/", function(req, res) {
 })
 
 app.get("/json", function(req, res){
-    if(process.env.MESSAGE_STYLE == "uppercase"){
-        return res.json({"message": "HELLO JSON"})
+    if(process.env.MESSAGE_STYLE === "uppercase"){
+         res.json({"message": "HELLO JSON"});
     } else {
-        return res.json({"message": "Hello json"})
+         res.json({"message": "Hello json"});
     }
     
 })
