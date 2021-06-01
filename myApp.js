@@ -10,6 +10,8 @@ app.get("/", function(req, res) {
 
 console.log(absolutePath);
 
+app.use("/", express.static(__dirname + "/public"))
+
 
 
 
