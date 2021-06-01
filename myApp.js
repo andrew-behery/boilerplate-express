@@ -22,6 +22,7 @@ app.use("/public", express.static(__dirname + "/public"))
 
 console.log(process.env.MESSAGE_STYLE)
 
+module.exports = app;
 
 
 
