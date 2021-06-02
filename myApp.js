@@ -1,16 +1,20 @@
-// --> 7)  Mount the Logger middleware here
-
-
-// --> 11)  Mount the body-parser middleware  here
-
-
-/** 1) Meet the node console. */
 var express = require('express');
 var app = express();
 require('dotenv').config();
 
 console.log("Hello World");
 console.log(process.env.MESSAGE_STYLE);
+
+// --> 7)  Mount the Logger middleware here
+app.use(
+  function(req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+  }
+)
+
+// --> 11)  Mount the body-parser middleware  here
+
 
 
 
@@ -38,7 +42,7 @@ app.use(express.static(__dirname + "/public"));
 // });
 
 /** 6) Use the .env file to configure the app */
-app.get("/json", function (req, res) {
+/* app.get("/json", function (req, res) {
   if (process.env.MESSAGE_STYLE === 'uppercase') {
     res.json({
       "message": "HELLO JSON"
@@ -47,7 +51,7 @@ app.get("/json", function (req, res) {
     res.json({
       "message": "Hello json"
     });  
-});  
+});   */
 
  
 /** 7) Root-level Middleware - A logger */
