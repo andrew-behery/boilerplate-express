@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
 require('dotenv').config();
 
 
@@ -18,12 +17,10 @@ app.use(
 // --> 11)  Mount the body-parser middleware  here
 app.use(
   function(req, res, next) {
-    bodyParser.urlencoded({extended: false});
-    console.log(bodyParser);
+    express.urlencoded({extended: true});
     next();
   }
 )
-
 
 
 /** 2) A first working Express Server */
